@@ -1,4 +1,4 @@
-name: Cypress Tests
+name: ClockIn
 
 on: [push]
 
@@ -12,6 +12,10 @@ jobs:
       # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v2
+
+      - name: Save artifact
+        uses: actions/upload-artifact@v2
+        if: failure()
         with:
-          build: npm run build
-          start: npm start
+          name: cypress-screenshots
+          path: cypress/screenshots

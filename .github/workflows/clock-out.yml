@@ -1,6 +1,9 @@
-name: ClockIn
+name: ClockOut
 
-on: [push]
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 17 * * 1-5"
 
 jobs:
   cypress-run:
@@ -8,10 +11,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
+
       - name: Cypress run
         uses: cypress-io/github-action@v2
+        with:
+          spec: cypress/integration/clock-out.spec.js
 
       - name: Save artifact
         uses: actions/upload-artifact@v2

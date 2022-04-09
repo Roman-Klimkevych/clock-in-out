@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
-describe('example to-do app', () => {
-  it('displays two todo items by default', () => {
+describe('ClockOut', () => {
+  it('ClockOut', () => {
     cy.visit('https://live.timeclock365.com/login')
     cy.get('input[placeholder="Username"]').type(Cypress.env('USERNAME'));
     cy.get('.login-page__submit').click();

@@ -5,7 +5,7 @@ describe('ClockIn', () => {
     if (true) {
       var a = 1
     } else {
-      var a = 2
+      var a = 1
     }
     cy.visit('https://live.timeclock365.com/login')
     cy.get('input[placeholder="Username"]').type(Cypress.env('USERNAME'));
